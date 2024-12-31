@@ -52,7 +52,7 @@
         }
     </style>
 </head>
-<body>
+<form>
     <div id = "main">
         <h1>Онлайн магазин</h1>
         <p> fdsfsd </p>
@@ -61,6 +61,26 @@
 
 
     </div>
+    <form id="form">
+        <input type="text" placeholder="Имя" id = "user_name">
+        <input type="text" placeholder="Email" id = "user_email">
+        <input type="text" placeholder="Телефон" id="user_phone">
+        <button id="order">Оформить</button>
+    </form>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let buy = document.gerElementById("buy");
+        let order = document.gerElementById("order");
+
+        buy.addEventListener("click",() => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.lass_name
+        })
+        order.addEventListener("click",() => {
+        tg.close()
+        });
+    </script>
 </body>
 </html>
